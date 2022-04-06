@@ -21,8 +21,8 @@ h1 {
 
   .board {
     display: grid;
-    width: 300px;
-    height: 300px;
+    width: 315px;
+    height: 315px;
     grid-template-columns: auto auto auto;
     background-color: white;
   }
