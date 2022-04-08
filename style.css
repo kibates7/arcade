@@ -11,6 +11,10 @@ h1 {
     color: white;
     background-color: rgb(28, 94, 49);
 }
+
+h2 {
+    background-color: white;
+}
 .container {
     min-height: 50vh;
     display: flex;
@@ -37,7 +41,7 @@ h1 {
     border: 3px solid rgb(29, 99, 52);
   }
 
-#playAgain{
+#playAgain, #clear{
     background-color: rgb(48, 157, 85);
     border: none;
     color: white;
@@ -50,7 +54,7 @@ h1 {
     box-shadow: 10px 10px 5px rgb(16, 53, 28);
 }
 
-#playAgain:hover{
+#playAgain:hover, #clear:hover{
     background-color: rgb(16, 53, 28);
     box-shadow: none;
     cursor: pointer;
