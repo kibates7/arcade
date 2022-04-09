@@ -11,9 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    
     <div class="container">
         <h1>Tic-Tac-Toe</h1>
+        <h2 id="result"></h2>
+        <h3 id="turn"></h3>
         <div class="board">
             <div id="0" class="block"></div>
             <div id="1" class="block"></div>
@@ -27,7 +29,19 @@
           </div>
           <br>
           <br>
-          <h2 id="result"></h2>
+          
+          
+          <div id="scoreboard">
+            <h1 id="h1Score">scoreboard</h1> 
+             <h3 class="score">X</h3>
+             <h3 class="score">Tie</h3>
+             <h3 class="score">O</h3>
+             
+             <h3 class="score" id="xScore"></h3>
+             <h3 class="score" id="tieScore"></h3>
+             <h3 class="score" id="oScore"></h3>
+          </div>
+          <br>
           <div id="btns">
           <button id="clear" onclick="clearOut()">Clear Board</button>
           <button id="playAgain" onclick="restart()">Restart</button>

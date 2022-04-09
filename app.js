@@ -1,8 +1,15 @@
+//variables
 let selectedBox = ''
 let blocks = document.getElementsByClassName("block")
 let char = ''
 let result = document.getElementById("result")
+let turn = document.getElementById("turn")
 let board = document.getElementsByClassName("board")[0]
+let xx = 0
+let tie = 0
+let oo = 0
+
+
 
 const gameState = {
     players: ['x', 'o'], //current player is whomever in 0 position and swap after each play
@@ -59,7 +66,30 @@ function checkRow(selectedNum){
     }      
 }
     
+//keeps count of score
+function score(char){
+    let xScore = document.getElementById("xScore")
+    let tieScore = document.getElementById("tieScore")
+    let oScore = document.getElementById("oScore")
+    if(char === 'x'){
+        xx++
+        xScore.innerHTML = xx
+    }
+    else if(char === 'o'){
+        oo++
+        oScore.innerHTML = oo
+    }
 
+}
+
+function tieCheck(selectedBox){
+    if(!gameState.board.includes(null) && !checkRow(selectedBox)){
+        result.innerHTML = "Tie game!"
+        tie++
+        tieScore.innerHTML = tie
+        
+    }
+}
 
 
 //on click populate the block
@@ -67,18 +97,23 @@ function checkRow(selectedNum){
 for (const blck of blocks){
     blck.addEventListener('click', (event) =>{
         char = gameState.players[0]
-        
+        turn.innerHTML = ""
             if(blck.innerHTML === ""){
                 blck.insertAdjacentHTML("afterbegin", char);
                 selectedBox = blck.getAttribute('id')
                 addBoard(selectedBox, char)
                 swapTurns()
                 
+                
                 // if user wins across row, disable the board
                 if(checkRow(selectedBox)){
                     result.innerHTML = "Congratulations! Player " + char + " won!"
                     board.setAttribute("style", "pointer-events: none;")
+                    score(char)
+                    
+                    
                 }
+                tieCheck(selectedBox)
                 
             }    
     })
@@ -98,6 +133,7 @@ function clearOut(){
     
   }
   result.innerHTML = ""
+  turn.innerHTML = "It's " + gameState.players[0] + " turn"
   board.setAttribute("style", "pointer-events: auto;")
   
 }
